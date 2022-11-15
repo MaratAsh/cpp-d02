@@ -29,7 +29,6 @@ Fixed &Fixed::operator=(Fixed const &copy)
 	if (this == &copy)
 		return *this;
 	_point = copy.getRawBits();
-	// _point = copy._point; // так писать проще не использую геттер
 	return *this;
 }
 //----------------------------------------------------------------
