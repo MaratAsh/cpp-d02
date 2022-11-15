@@ -5,32 +5,38 @@
 #include "Fixed.hpp"
 
 
-// Дефолтные конструкторы ортодоксальной каноническай формы
-//
+// The Orthodox Canonical Class Form
+
+// Default Constructor
 Fixed::Fixed()
 {
 	_point = 0;
 	std::cout << "Default constructor called" << std::endl;
 }
-Fixed::~Fixed()
-{
-	std::cout << "Destructor called" << std::endl;
-}
-// конструктор копирования
+
+// Copy Constructor
 Fixed::Fixed(Fixed const &copy)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = copy;
 }
-// оператор присвоения
+
+// Destructor
+Fixed::~Fixed()
+{
+	std::cout << "Destructor called" << std::endl;
+}
+
+// Copy Assignment Operator
 Fixed &Fixed::operator=(Fixed const &copy)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this == &copy)
 		return *this;
-	_point = copy.getRawBits();
+	this->setRawBits(copy.getRawBits());
 	return *this;
 }
+
 //----------------------------------------------------------------
 int Fixed::getRawBits( void ) const
 {
